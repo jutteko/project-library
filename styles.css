@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 80vw;
+  height: 100vh;
+  box-shadow:
+    4px 0px 19px -1px rgba(0, 0, 0, 0.13),
+    -4px 0px 19px -1px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+.header {
+  grid-row: 1/2;
+  padding: 0 0 25px 25px;
+  background-color: #f8f1e4;
+}
+.header-title {
+  font-size: 10rem;
+  text-align: center;
+  font-weight: 900;
+}
+.add-book-container {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.btn-add-book {
+  height: 60px;
+  width: 60px;
+  font-size: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: goldenrod;
+  border: none;
+}
+.btn-side-text {
+  font-size: 20px;
+}
+.main-content {
+  grid-row: 2/3;
+  padding: 50px;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+.card {
+  border: 1px black solid;
+  border-radius: 20px;
+  padding: 15px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  border: 1px solid goldenrod;
+  border-top: 30px goldenrod solid;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.book-title {
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+.author {
+  font-size: 16px;
+  font-weight: 400;
+}
+.btn-read,
+.btn-delete {
+  height: 30px;
+  width: 100px;
+  border-radius: 15px;
+  background-color: goldenrod;
+  border: none;
+}
+.footer {
+  grid-row: 3/4;
+  background-color: rgb(12, 11, 11);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer p {
+  font-size: 15px;
+  color: #f8f1e4;
+}
