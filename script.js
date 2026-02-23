@@ -5,7 +5,7 @@ function Book(title, autor, pages, read) {
   this.read = read;
 }
 
-myLibray = [];
+myLibrary = [];
 
 const boek1 = new Book(
   "Cien Años De Solidad",
@@ -16,8 +16,11 @@ const boek1 = new Book(
 const boek2 = new Book("The Name Of The Rose", "Umberto Ecco", 512, false);
 const boek3 = new Book("2666", "Roberto Bolaño", 1100, false);
 
-myLibray.push(boek1);
-myLibray.push(boek2);
-myLibray.push(boek3);
+myLibrary.push(boek1);
+myLibrary.push(boek2);
+myLibrary.push(boek3);
 
-console.table(myLibray);
+function displayBooks() {
+  const cardContainer = document.querySelector(".card-container");
+  cardContainer.innerHTML = "";
+}
