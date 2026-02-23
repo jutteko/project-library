@@ -24,7 +24,7 @@ function displayBooks() {
   const cardContainer = document.querySelector(".card-container");
   cardContainer.innerHTML = "";
   // creëer de afzonderlijke onderdelen van de card
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     const card = document.createElement("div");
     card.classList.add("card");
     const title = document.createElement("h2");
@@ -47,11 +47,16 @@ function displayBooks() {
     btnRead.classList.add("btn-read");
     btnRead.textContent = book.read ? "Read" : "Not read";
     card.appendChild(btnRead);
+    btnRead.addEventListener("click", (e) => {
+      myLibrary[index].read = !myLibrary[index].read;
+      displayBooks();
+    });
     const btnDelete = document.createElement("button");
     btnDelete.classList.add("btn-delete");
     btnDelete.textContent = "Delete";
     btnDelete.addEventListener("click", (e) => {
-      console.log(e);
+      myLibrary.splice(index, 1);
+      displayBooks();
     });
     card.appendChild(btnDelete);
     //
