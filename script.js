@@ -1,6 +1,6 @@
-function Book(title, autor, pages, read) {
+function Book(title, author, pages, read) {
   this.title = title;
-  this.autor = autor;
+  this.author = author;
   this.pages = pages;
   this.read = read;
 }
@@ -23,4 +23,40 @@ myLibrary.push(boek3);
 function displayBooks() {
   const cardContainer = document.querySelector(".card-container");
   cardContainer.innerHTML = "";
+  // creëer de afzonderlijke onderdelen van de card
+  myLibrary.forEach((book) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    const title = document.createElement("h2");
+    title.classList.add("book-title");
+    title.textContent = book.title;
+    card.appendChild(title);
+    const author = document.createElement("p");
+    author.classList.add("author");
+    const span = document.createElement("span");
+    const italic = document.createElement("i");
+    italic.append("by ");
+    span.appendChild(italic);
+    author.append(span, book.author);
+    card.appendChild(author);
+    const pages = document.createElement("p");
+    pages.classList.add("author");
+    pages.textContent = `🗐 ${book.pages} pages`;
+    card.appendChild(pages);
+    const btnRead = document.createElement("button");
+    btnRead.classList.add("btn-read");
+    btnRead.textContent = book.read ? "Read" : "Not read";
+    card.appendChild(btnRead);
+    const btnDelete = document.createElement("button");
+    btnDelete.classList.add("btn-delete");
+    btnDelete.textContent = "Delete";
+    btnDelete.addEventListener("click", (e) => {
+      console.log(e);
+    });
+    card.appendChild(btnDelete);
+    //
+    cardContainer.append(card);
+  });
 }
+
+displayBooks();
