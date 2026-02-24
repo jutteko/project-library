@@ -16,17 +16,38 @@ const boek1 = new Book(
 );
 const boek2 = new Book("The Name Of The Rose", "Umberto Ecco", 512, false);
 const boek3 = new Book("2666", "Roberto Bolaño", 1100, false);
+const boek4 = new Book("The Kite Runner", "Khaled Hosseini", 371, false);
+const boek5 = new Book("Létranger", "Albert Camus", 123, false);
+const boek6 = new Book("Norwegian Wood", "Haruki Murakami", 296, false);
 
 myLibrary.push(boek1);
 myLibrary.push(boek2);
 myLibrary.push(boek3);
+myLibrary.push(boek4);
+myLibrary.push(boek5);
+myLibrary.push(boek6);
 
 // formulier wel en niet tonen
 const formNewBook = document.querySelector(".frm-new-book");
-const btnShowForm = document.querySelector(".btn-add");
+const btnShowForm = document.querySelector(".btn-add-book");
+//
 btnShowForm.addEventListener("click", (e) => {
   formNewBook.classList.toggle("show-hide-form");
-  console.log("hallo");
+});
+//
+// bijvoegen van een nieuw boek
+formNewBook.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const isread = document.querySelector("#read").checked;
+  console.log(isread);
+  const NewBook = new Book(title, author, pages, isread);
+  myLibrary.push(NewBook);
+  displayBooks();
+  formNewBook.reset();
+  formNewBook.classList.toggle("show-hide-form");
 });
 
 // De funtie voor het samenstellen van de cards

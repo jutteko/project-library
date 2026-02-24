@@ -50,19 +50,24 @@ body {
 }
 .frm-new-book {
   /*display: flex;*/
-  justify-content: end;
+  justify-content: center;
   align-items: center;
-  margin-left: 100px;
-  gap: 25px;
+  gap: 5px;
   display: none;
 }
 .frm-new-book input {
   height: 35px;
-  width: 250px;
+  width: 200px;
   border: 2px goldenrod solid;
   border-radius: 10px;
   padding-left: 10px;
   background-color: #fdfcf0;
+}
+.label-read {
+  margin: 0 5px 0 10px;
+}
+#read {
+  width: 20px;
 }
 .show-hide-form {
   display: flex;
@@ -70,6 +75,7 @@ body {
 .btn-add {
   height: 30px;
   width: 100px;
+  margin-left: 15px;
   border-radius: 15px;
   background-color: goldenrod;
   border: none;

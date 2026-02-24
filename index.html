@@ -26,15 +26,25 @@
               name="title"
               id="title"
               placeholder="Title of the book"
+              required
             />
-            <input type="text" name="author" id="author" placeholder="Author" />
+            <input
+              type="text"
+              name="author"
+              id="author"
+              placeholder="Author"
+              required
+            />
             <input
               type="number"
-              name="Pages"
-              id="Pages"
+              name="pages"
+              id="pages"
               placeholder="number of pages"
+              required
             />
-            <button type="button" class="btn-add">Add</button>
+            <label for="read" class="label-read">Read</label>
+            <input type="checkbox" name="read" id="read" />
+            <button type="submit" class="btn-add">Add</button>
           </form>
         </div>
       </div>
