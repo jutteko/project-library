@@ -47,12 +47,38 @@ btnShowForm.addEventListener("click", (e) => {
 // bijvoegen van een nieuw boek
 formNewBook.addEventListener("submit", (e) => {
   e.preventDefault();
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
-  const pages = document.querySelector("#pages").value;
-  const isread = document.querySelector("#read").checked;
-  console.log(isread);
-  const NewBook = new Book(title, author, pages, isread);
+
+  const titleInput = document.querySelector("#title");
+  const authorInput = document.querySelector("#author");
+  const pagesInput = document.querySelector("#pages");
+
+  titleInput.setCustomValidity("");
+  authorInput.setCustomValidity("");
+  pagesInput.setCustomValidity("");
+  // validatie checken
+  if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity("De titel moet ingevuld zijn!");
+    titleInput.reportValidity();
+    return;
+  }
+  if (authorInput.validity.valueMissing) {
+    authorInput.setCustomValidity("De auteur moet ingevuld zijn!");
+    authorInput.reportValidity();
+    return;
+  }
+  if (pagesInput.validity.valueMissing) {
+    pagesInput.setCustomValidity("Het aantal pagina's moet ingevuld zijn!");
+    pagesInput.reportValidity();
+    return;
+  }
+
+  // alles ok - boek toevoegen
+  const NewBook = new Book(
+    titleInput.value,
+    authorInput.value,
+    pagesInput.value,
+    document.querySelector("#read").checked,
+  );
   myLibrary.push(NewBook);
   displayBooks();
   formNewBook.reset();
